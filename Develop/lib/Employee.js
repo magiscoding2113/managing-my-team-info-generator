@@ -1,5 +1,4 @@
 
-const inquirer = require('inquirer');
 
 
 class Employee {
@@ -8,47 +7,24 @@ class Employee {
         this.id = id;
         this.email = email;
     }
-    getName() {
-        return inquirer.prompt([
-            {
-            type:'input',
-            name:'name',
-            message:'What is the employees name?'
+
+        getName() {
+            return this.name;
+    
         }
-    ]).then(answers => {
-        this.name = answers.name;
-        this.getId();
-    })
+        
+        getId() {
+            return this.id;
+               }
+        
+        
+        getEmail() {
+            return  this.email;
+        }
+        getRole() {
+            return 'Employee';
+        }
     }
-    getId() {
-        return inquirer.prompt([
-            {
-                type:'number',
-                name:'id',
-                message:'What is the employees ID?'
-            }
-        ]).then(answers => {
-            this.id = answers.id;
-            this.getEmail();
-        })
-    }
-    getEmail() {
-        return inquirer.prompt([
-            {
-                type:'input',
-                name:'email',
-                message:'What is the employees email?'
-            }
-        ]).then(answers => {
-            this.email = answers.email;
-            this.getRole();
-        })
-    }
-    getRole(){
-        this.role = 'employee'
-        console.log(this)
-    }
-}
-const e = new Employee();
-e.getName();
+    
+
 module.exports = Employee;

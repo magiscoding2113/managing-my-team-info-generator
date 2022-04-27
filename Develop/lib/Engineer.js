@@ -1,35 +1,16 @@
-const inquirer = require('inquirer');
+const Employee = require('./Employee');
 
-class Engineer {
-    constructor() {
-        this.Engineer = null;
-    }
-    getGitHubUser() {
-        return inquirer.prompt([
-            {
-                type:'input',
-                name:'GitHubUser',
-                message:'What is your GitHub username?'
 
-        }
-    ]).then(answers => {
-        this.GitHubUser = answers.GitHubUser;
-        this.getRole();
-    })
-    }
-    getRole(){
-        this.role = 'Engineer'
-        console.log(this)
-    }
-    getGitHubUser(){
-        this.GitHubUser = 'GitHubUser'
-        console.log(this)
+class Engineer extends Employee {
+    constructor(name, id, email, github) {
+        super(name, id, email);
+        this.github = github;
+    }  
+         getGithub() {
+        return this.github;
+    } 
+        getRole() {
+       return 'Engineer';
     }
 }
-
-
-
-
-const e = new Engineer();
-e.getGitHubUser();
 module.exports = Engineer;
